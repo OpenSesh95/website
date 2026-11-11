@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Saurabh Seshabhattar</title>
+<meta name="description" content="Public work with receipts: gated-dispatch and the STD-0 metering standard.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <p class="kicker">Saurabh Seshabhattar · @OpenSesh95</p>
+  <h1>Work</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="writing.html">Writing</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <article class="card">
+      <h2><a href="https://github.com/OpenSesh95/gated-dispatch">gated-dispatch</a></h2>
+      <p>Approval-gated LLM dispatch: a prompt goes through deterministic verification, then a human approval gate, then a cost ledger — one ticket per run, whatever the outcome.</p>
+      <ul>
+        <li><strong>Metered under STD-0.</strong> Tickets are computed from the provider API's own usage fields at published rates — never estimates. Envelopes hard-stop at 100%, work holds at 90%, an unpriced model stops before dispatch.</li>
+        <li><strong>Proven live.</strong> One ticketed round-trip per lane — Anthropic (claude-haiku-5-5, 19 in / 5 out, $0.000004), Gemini (gemini-3.8-flash, 6 in / 88 out, $0.000334), xAI (grok-4.20 non-reasoning, 190 in / 2 out, $0.000243). Total proof spend: $0.000581.</li>
+        <li><strong>Standard library only.</strong> Python ≥3.11, no dependencies; 12 offline tests green.</li>
+      </ul>
+      <p>Design records: <a href="https://github.com/OpenSesh95/gated-dispatch/tree/main/docs">ADRs + diagrams</a> — including why tickets come from usage fields, not estimates, and why the ledger stores prompt hashes, never raw prompts. Extracted from a private working system; more of that system surfaces here as it is cleared for release.</p>
+    </article>
+  </section>
+</main>
+<footer><p>© Saurabh Seshabhattar · Built as a static site, no tracking.</p></footer>
+</body>
+</html>
