@@ -1,0 +1,147 @@
+{
+ "schema_version": 1,
+ "receipts": [
+  {
+   "id": "R-0001",
+   "date": "2026-11-11",
+   "title": "Knowledge-layer compile GREEN \u2014 tree v0.4.2",
+   "series": "pipeline-governance",
+   "outcome": "VERIFIED",
+   "summary": "Context-layer tree v0.4.2 compiled clean: 417 atoms, 0 errors, 0 PII findings, 0 silent edits. Claude kernel pack written at the recorded hash.",
+   "counts": {
+    "atoms": 417,
+    "errors": 0
+   },
+   "hashes": {
+    "kernel": "1bff6418"
+   },
+   "source": {
+    "label": "Internal build record",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0002",
+   "date": "2026-11-11",
+   "title": "gated-dispatch \u2014 public repo live",
+   "series": "pipeline-governance",
+   "outcome": "SHIPPED",
+   "summary": "Metered, approval-gated dispatch for LLM lanes: every call carries a ticket computed from the API's own usage fields; unmetered dispatch stops by design. Public repo, pinned on the profile.",
+   "counts": {
+    "commits": 34
+   },
+   "hashes": {
+    "commit": "2d063d6"
+   },
+   "source": {
+    "label": "github.com/OpenSesh95/gated-dispatch",
+    "url": "https://github.com/OpenSesh95/gated-dispatch"
+   }
+  },
+  {
+   "id": "R-0003",
+   "date": "2026-11-11",
+   "title": "Cloud project stood up for the open-weight seat",
+   "series": "sovereign-edge",
+   "outcome": "VERIFIED",
+   "summary": "Dedicated GCP project created and billing-linked; Compute Engine API enabled. First citizen of the Quagmire cloud pillar.",
+   "counts": {},
+   "hashes": {},
+   "source": {
+    "label": "Internal infrastructure record",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0004",
+   "date": "2026-11-11",
+   "title": "GPU quota granted",
+   "series": "sovereign-edge",
+   "outcome": "VERIFIED",
+   "summary": "Quota approved: NVIDIA L4 GPUs = 1 (us-central1) and all-regions GPUs = 1. Granted 2026-11-11, the same evening it was requested.",
+   "counts": {},
+   "hashes": {},
+   "source": {
+    "label": "Internal infrastructure record",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0005",
+   "date": "2026-11-11",
+   "title": "spaces-tooling \u2014 private repo staged",
+   "series": "build-tooling",
+   "outcome": "STAGED",
+   "summary": "Space action definitions (13 spaces: actions + schemas) versioned as one tooling repo. Private repo; existence and head commit verified by read-back.",
+   "counts": {
+    "commits": 30,
+    "files": 30
+   },
+   "hashes": {
+    "commit": "08e3ba03"
+   },
+   "source": {
+    "label": "Internal ship log",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0006",
+   "date": "2026-11-11",
+   "title": "panel-dispatch \u2014 private repo staged",
+   "series": "build-tooling",
+   "outcome": "STAGED",
+   "summary": "Multi-model panel dispatch harness (5 dispatchers + packets) versioned as one repo. Private repo; existence and head commit verified by read-back.",
+   "counts": {
+    "commits": 13,
+    "files": 13
+   },
+   "hashes": {
+    "commit": "277d2f12"
+   },
+   "source": {
+    "label": "Internal ship log",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0007",
+   "date": "2026-11-11",
+   "title": "personal-automation \u2014 private repo staged",
+   "series": "build-tooling",
+   "outcome": "STAGED",
+   "summary": "Personal automation scripts (media-library build, marketplace sweep processing, follow-graph audit) versioned as one repo. Private repo; existence and head commit verified by read-back.",
+   "counts": {
+    "commits": 21,
+    "files": 21
+   },
+   "hashes": {
+    "commit": "032f35a9"
+   },
+   "source": {
+    "label": "Internal ship log",
+    "url": null
+   }
+  },
+  {
+   "id": "R-0008",
+   "date": "2026-11-11",
+   "title": "edge-rag \u2014 private repo staged",
+   "series": "sovereign-edge",
+   "outcome": "STAGED",
+   "summary": "Hybrid edge-cloud RAG scaffold: ingest/vector/API contracts, deterministic chunker, contract tests green. Private repo; existence and head commit verified by read-back.",
+   "counts": {
+    "commits": 15,
+    "files": 15,
+    "tests": "11/11"
+   },
+   "hashes": {
+    "commit": "fbcf3730"
+   },
+   "source": {
+    "label": "Internal ship log",
+    "url": null
+   }
+  }
+ ]
+}
