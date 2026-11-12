@@ -6,26 +6,12 @@
 <title>Receipts — Sesh B</title>
 <meta name="description" content="The public record of what shipped, when, and how it checks out. Proof, not promises.">
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#2C001E">
-<meta property="og:title" content="Receipts — Sesh B">
-<meta property="og:description" content="The public record of what shipped, when, and how it checks out. Proof, not promises.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://seshstack.com/receipts.html">
-<meta property="og:image" content="https://seshstack.com/og.png">
-<meta name="twitter:card" content="summary_large_image">
-
 </head>
 <body>
-<div class="window">
-<div class="window-bar" aria-hidden="true"><span class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></span><span class="window-title">~/seshstack — receipts.html</span></div>
 <header>
-  <p class="wordmark" aria-hidden="true">~/seshstack <span class="prompt">$</span><span class="cursor"></span></p>
   <p class="kicker">Sesh B · @OpenSesh95</p>
   <h1>Receipts</h1>
-  <p class="lede">The public record of what shipped, when, and how it checks out. The ledger itself lives on <a href="https://github.com/OpenSesh95/receipts">GitHub</a> — this page is a view of that file, rendered as-is.</p>
+  <p class="lede">The public record of what shipped, when, and how it checks out. The ledger itself is kept as a private record — this page renders its published extract, exactly as released.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -37,17 +23,16 @@
 <main>
   <div class="filters" id="filters" role="group" aria-label="Filter receipts by series"></div>
   <div id="receipts"><p>Loading the ledger…</p></div>
-  <noscript><p>The receipts render from the ledger file with JavaScript. The record itself is at <a href="https://github.com/OpenSesh95/receipts">github.com/OpenSesh95/receipts</a>.</p></noscript>
+  <noscript><p>The receipts render from the published extract with JavaScript, so this list needs JavaScript enabled.</p></noscript>
   <section>
     <h2>What a receipt shows — and what it doesn't</h2>
     <p>Each receipt shows what shipped, when, the outcome, the counts and hashes that let anyone check it, and a pointer to the source. Deliberately withheld, always: account and project identifiers, email addresses, network addresses and hostnames, full case or request IDs, anything credential-adjacent, and employer specifics. Money appears at envelope level only, and only in figures already public. The withholding is part of the proof.</p>
   </section>
 </main>
 <footer><p>© Sesh B · Built as a static site, no tracking.</p></footer>
-</div><!-- /.window -->
 <script>
 (function () {
-  var LEDGER_URL = "https://raw.githubusercontent.com/OpenSesh95/receipts/main/ledger.json";
+  var LEDGER_URL = "/receipts.json";
   var SERIES_LABELS = {
     "sovereign-edge": "Sovereign Edge",
     "build-tooling": "Build tooling",
@@ -139,9 +124,9 @@
     }
   }).catch(function () {
     container.innerHTML = "";
-    var p = el("p", "The ledger could not be loaded here. The record itself is at ");
-    var a = el("a", "github.com/OpenSesh95/receipts");
-    a.href = "https://github.com/OpenSesh95/receipts";
+    var p = el("p", "The receipts extract could not be loaded here. The published record is on GitHub: ");
+    var a = el("a", "github.com/OpenSesh95");
+    a.href = "https://github.com/OpenSesh95";
     p.appendChild(a);
     p.appendChild(document.createTextNode("."));
     container.appendChild(p);
