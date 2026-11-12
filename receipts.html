@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receipts — Sesh B</title>
+<meta name="description" content="The public record of what shipped, when, and how it checks out. Proof, not promises.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <p class="kicker">Sesh B · @OpenSesh95</p>
+  <h1>Receipts</h1>
+  <p class="lede">The public record of what shipped, when, and how it checks out. The ledger itself lives on <a href="https://github.com/OpenSesh95/receipts">GitHub</a> — this page is a view of that file, rendered as-is.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="writing.html">Writing</a>
+    <a href="receipts.html" aria-current="page">Receipts</a>
+  </nav>
+</header>
+<main>
+  <div class="filters" id="filters" role="group" aria-label="Filter receipts by series"></div>
+  <div id="receipts"><p>Loading the ledger…</p></div>
+  <noscript><p>The receipts render from the ledger file with JavaScript. The record itself is at <a href="https://github.com/OpenSesh95/receipts">github.com/OpenSesh95/receipts</a>.</p></noscript>
+  <section>
+    <h2>What a receipt shows — and what it doesn't</h2>
+    <p>Each receipt shows what shipped, when, the outcome, the counts and hashes that let anyone check it, and a pointer to the source. Deliberately withheld, always: account and project identifiers, email addresses, network addresses and hostnames, full case or request IDs, anything credential-adjacent, and employer specifics. Money appears at envelope level only, and only in figures already public. The withholding is part of the proof.</p>
+  </section>
+</main>
+<footer><p>© Sesh B · Built as a static site, no tracking.</p></footer>
+<script>
+(function () {
+  var LEDGER_URL = "https://raw.githubusercontent.com/OpenSesh95/receipts/main/ledger.json";
+  var SERIES_LABELS = {
+    "sovereign-edge": "Sovereign Edge",
+    "build-tooling": "Build tooling",
+    "pipeline-governance": "Pipeline & governance",
+    "site-presence": "Site & presence"
+  };
+  var container = document.getElementById("receipts");
+  var filtersEl = document.getElementById("filters");
+  var all = [];
+  var activeSeries = "all";
+
+  function el(tag, text, cls) {
+    var n = document.createElement(tag);
+    if (text != null) n.textContent = text;
+    if (cls) n.className = cls;
+    return n;
+  }
+
+  function pairs(obj) {
+    return Object.keys(obj || {}).map(function (k) { return k + " " + obj[k]; }).join(" · ");
+  }
+
+  function render() {
+    container.innerHTML = "";
+    var list = all.filter(function (r) { return activeSeries === "all" || r.series === activeSeries; });
+    if (!list.length) { container.appendChild(el("p", "No receipts in this series yet.")); return; }
+    list.forEach(function (r) {
+      var card = el("article", null, "card");
+      card.id = r.id;
+      var h = el("h3");
+      h.appendChild(el("span", r.title));
+      h.appendChild(document.createTextNode(" "));
+      h.appendChild(el("span", r.outcome, "badge badge-" + String(r.outcome).toLowerCase()));
+      card.appendChild(h);
+      var meta = [r.date, SERIES_LABELS[r.series] || r.series, r.id].join(" · ");
+      card.appendChild(el("p", meta, "counts"));
+      if (r.summary) card.appendChild(el("p", r.summary));
+      var c = pairs(r.counts); if (c) card.appendChild(el("p", c, "counts"));
+      var hs = pairs(r.hashes); if (hs) card.appendChild(el("p", hs, "hashes"));
+      if (r.source && r.source.label) {
+        var p = el("p", "Source: ", "counts");
+        if (r.source.url) {
+          var a = el("a", r.source.label);
+          a.href = r.source.url;
+          p.appendChild(a);
+        } else {
+          p.appendChild(document.createTextNode(r.source.label + " (private record)"));
+        }
+        card.appendChild(p);
+      }
+      container.appendChild(card);
+    });
+  }
+
+  function buildFilters() {
+    var seen = {};
+    all.forEach(function (r) { if (r.series) seen[r.series] = true; });
+    var keys = ["all"].concat(Object.keys(seen));
+    keys.forEach(function (k) {
+      var b = el("button", k === "all" ? "All" : (SERIES_LABELS[k] || k));
+      b.type = "button";
+      b.setAttribute("aria-pressed", k === activeSeries ? "true" : "false");
+      b.addEventListener("click", function () {
+        activeSeries = k;
+        Array.prototype.forEach.call(filtersEl.children, function (x) { x.setAttribute("aria-pressed", "false"); });
+        b.setAttribute("aria-pressed", "true");
+        render();
+      });
+      filtersEl.appendChild(b);
+    });
+  }
+
+  fetch(LEDGER_URL).then(function (res) {
+    if (!res.ok) throw new Error("ledger fetch failed");
+    return res.json();
+  }).then(function (doc) {
+    var receipts = (doc && doc.receipts) || [];
+    all = receipts.filter(function (r) {
+      return r && r.id && r.title && r.source && r.source.label;
+    }).sort(function (a, b) {
+      if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+      return a.id < b.id ? 1 : -1;
+    });
+    buildFilters();
+    render();
+    if (location.hash) {
+      var t = document.getElementById(location.hash.slice(1));
+      if (t) t.scrollIntoView();
+    }
+  }).catch(function () {
+    container.innerHTML = "";
+    var p = el("p", "The ledger could not be loaded here. The record itself is at ");
+    var a = el("a", "github.com/OpenSesh95/receipts");
+    a.href = "https://github.com/OpenSesh95/receipts";
+    p.appendChild(a);
+    p.appendChild(document.createTextNode("."));
+    container.appendChild(p);
+  });
+})();
+</script>
+</body>
+</html>
