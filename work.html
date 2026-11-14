@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work — Sesh B</title>
-<meta name="description" content="Public work with receipts: gated-dispatch and the STD-0 metering standard.">
+<meta name="description" content="Projects, described at the level of what they are and what they do. The code and its record live on GitHub.">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2C001E">
 <meta property="og:title" content="Work — Sesh B">
-<meta property="og:description" content="Public work with receipts: gated-dispatch and the STD-0 metering standard.">
+<meta property="og:description" content="Projects, described at the level of what they are and what they do. The code and its record live on GitHub.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://seshstack.com/work.html">
 <link rel="canonical" href="https://seshstack.com/work.html">
@@ -26,25 +26,25 @@
   <p class="wordmark" aria-hidden="true">~/seshstack <span class="prompt">$</span><span class="cursor"></span></p>
   <p class="kicker">Sesh B · @OpenSesh95</p>
   <h1>Work</h1>
+  <p class="lede">Projects, described at the level of what they are and what they do. The code, the design records, and the full history live on GitHub.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="work.html" aria-current="page">Work</a>
     <a href="writing.html">Writing</a>
-    <a href="receipts.html">Receipts</a>
   </nav>
 </header>
 <main>
   <section>
     <article class="card">
       <h2><a href="https://github.com/OpenSesh95/gated-dispatch">gated-dispatch</a></h2>
-      <p>Approval-gated LLM dispatch: a prompt goes through deterministic verification, then a human approval gate, then a cost ledger — one ticket per run, whatever the outcome.</p>
+      <p>Approval-gated LLM dispatch: a prompt goes through deterministic verification, then a human approval gate, then costing — one checked, approved run at a time.</p>
       <ul>
-        <li><strong>Metered under STD-0.</strong> Tickets are computed from the provider API's own usage fields at published rates — never estimates. Envelopes hard-stop at 100%, work holds at 90%, an unpriced model stops before dispatch.</li>
-        <li><strong>Proven live.</strong> One ticketed round-trip per lane — Anthropic (claude-haiku-5-5, 19 in / 5 out, $0.000004), Gemini (gemini-3.8-flash, 6 in / 88 out, $0.000334), xAI (grok-4.20 non-reasoning, 190 in / 2 out, $0.000243). Total proof spend: $0.000581.</li>
-        <li><strong>Standard library only.</strong> Python ≥3.11, no dependencies; 12 offline tests green.</li>
+        <li><strong>What it is for.</strong> Making AI spend deliberate — every dispatch is checked against rules and approved by a person before it runs.</li>
+        <li><strong>How it is built.</strong> Standard library only, Python ≥3.11, no dependencies.</li>
+        <li><strong>Where it lives.</strong> The code and the design records stand on GitHub, linked from the project name above.</li>
       </ul>
-      <p>Design records: <a href="https://github.com/OpenSesh95/gated-dispatch/tree/main/docs">ADRs + diagrams</a> — including why tickets come from usage fields, not estimates, and why the ledger stores prompt hashes, never raw prompts. Extracted from a private working system; more of that system surfaces here as it is cleared for release.</p>
+      <p>Extracted from a private working system; more of that system surfaces here as it is cleared for release.</p>
     </article>
   </section>
 </main>
