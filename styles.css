@@ -249,3 +249,26 @@ footer {
   .filters button { background: #262637; color: var(--ink-on-dark); }
   .filters button[aria-pressed="true"] { background: var(--aubergine); color: #fff; }
 }
+
+/* — Notes layout (overhaul, Rosetta translation) — */
+.notes { display: grid; grid-template-columns: 15.5rem 1fr; gap: 2rem; align-items: start; }
+.notes-index { border-right: 1px solid rgba(119, 41, 83, 0.25); padding-right: 1.25rem; }
+.notes-group { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cool-neutral); margin: 1rem 0 0.4rem; }
+.notes-group:first-child { margin-top: 0; }
+.note-item { display: block; padding: 0.5rem 0.6rem; border-radius: 8px; text-decoration: none; }
+.note-item:hover { background: rgba(119, 41, 83, 0.08); }
+.note-item[aria-current="page"] { background: rgba(119, 41, 83, 0.14); }
+.note-title { display: block; font-weight: 600; color: var(--ink); }
+.note-meta { display: block; font-size: 0.85rem; color: var(--cool-neutral); line-height: 1.4; }
+.note h1 { margin-top: 0; }
+.link-hub li { margin: 0.6rem 0; }
+@media (max-width: 760px) {
+  .notes { grid-template-columns: 1fr; }
+  .notes-index { border-right: none; border-bottom: 1px solid rgba(119, 41, 83, 0.25); padding: 0 0 1rem; }
+}
+@media (prefers-color-scheme: dark) {
+  .note-title { color: var(--ink-on-dark); }
+  .note-item:hover { background: rgba(255, 255, 255, 0.06); }
+  .note-item[aria-current="page"] { background: rgba(255, 255, 255, 0.1); }
+  .notes-index { border-color: rgba(174, 167, 159, 0.3); }
+}
