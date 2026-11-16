@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://seshstack.com/</loc></url>
-  <url><loc>https://seshstack.com/about.html</loc></url>
-  <url><loc>https://seshstack.com/work.html</loc></url>
-  <url><loc>https://seshstack.com/writing.html</loc></url>
-  <url><loc>https://seshstack.com/links.html</loc></url>
-  <url><loc>https://seshstack.com/principles.html</loc></url>
-  <url><loc>https://seshstack.com/colophon.html</loc></url>
+  <url><loc>https://seshstack.com/about</loc></url>
+  <url><loc>https://seshstack.com/work</loc></url>
+  <url><loc>https://seshstack.com/writing</loc></url>
+  <url><loc>https://seshstack.com/links</loc></url>
+  <url><loc>https://seshstack.com/principles</loc></url>
+  <url><loc>https://seshstack.com/colophon</loc></url>
 </urlset>
