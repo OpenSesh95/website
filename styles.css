@@ -34,7 +34,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 2.5rem 1rem 3rem;
+  padding: 0.75rem;
   font-family: var(--font-ui);
   font-size: 1.05rem;
   line-height: 1.6;
@@ -51,7 +51,7 @@ body {
 
 /* — Window chrome (§5.4): the page is a window on the wallpaper — */
 .window {
-  max-width: 46rem;
+  max-width: none;
   margin: 0 auto;
   background: var(--surface);
   border: 1px solid rgba(174, 167, 159, 0.55);
@@ -86,9 +86,9 @@ body {
   text-overflow: ellipsis;
 }
 
-.window > header { padding: 1.75rem 2rem 0; }
-.window > main { padding: 0 2rem; }
-.window > footer { margin: 3rem 2rem 0; }
+.window > header { padding: 1.75rem clamp(1.25rem, 4vw, 3.5rem) 0; }
+.window > main { padding: 0 clamp(1.25rem, 4vw, 3.5rem); }
+.window > footer { margin: 3rem clamp(1.25rem, 4vw, 3.5rem) 0; }
 
 @media (max-width: 640px) {
   body { padding: 0.75rem 0.5rem 1.25rem; }
@@ -179,17 +179,6 @@ nav a[aria-current="page"] {
 .card h2, .card h3 { margin-top: 0.4rem; }
 
 /* — Headshot: framed in a window (§5.4) — */
-.headshot-placeholder {
-  border: 2px dashed var(--aubergine);
-  border-radius: 10px;
-  color: var(--aubergine);
-  background: rgba(119, 41, 83, 0.04);
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  padding: 2.5rem 1rem;
-  text-align: center;
-  margin: 1rem 0;
-}
 
 footer {
   border-top: 1px solid var(--warm-neutral);
@@ -242,8 +231,7 @@ footer {
   nav { background: rgba(255, 255, 255, 0.05); }
   nav a[aria-current="page"] { color: var(--ink-on-dark); }
   .card { background-color: #262637; box-shadow: none; }
-  .headshot-placeholder { color: #D48BC0; border-color: #D48BC0; background: rgba(255, 255, 255, 0.04); }
-  .badge, .counts, .hashes { color: var(--ink-on-dark); }
+    .badge, .counts, .hashes { color: var(--ink-on-dark); }
   .badge-shipped { border-color: #4ADE80; color: #4ADE80; }
   .badge-verified { border-color: #FF8A50; color: #FF8A50; }
   .filters button { background: #262637; color: var(--ink-on-dark); }
@@ -261,7 +249,12 @@ footer {
 .note-title { display: block; font-weight: 600; color: var(--ink); }
 .note-meta { display: block; font-size: 0.85rem; color: var(--cool-neutral); line-height: 1.4; }
 .note h1 { margin-top: 0; }
+.note { max-width: 82ch; }
+.four-words { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.01em; color: var(--aubergine); margin: 0 0 1rem; }
 .link-hub li { margin: 0.6rem 0; }
+@media (prefers-color-scheme: dark) {
+  .four-words { color: #D48BC0; }
+}
 @media (max-width: 760px) {
   .notes { grid-template-columns: 1fr; }
   .notes-index { border-right: none; border-bottom: 1px solid rgba(119, 41, 83, 0.25); padding: 0 0 1rem; }
