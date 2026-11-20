@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Models — Sesh B</title>
+<meta name="description" content="Findings from running AI systems — written for the public, one piece at a time.">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2C001E">
+<meta property="og:title" content="Models — Sesh B">
+<meta property="og:description" content="Findings from running AI systems — written for the public, one piece at a time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seshstack.com/models">
+<link rel="canonical" href="https://seshstack.com/models">
+<meta property="og:image" content="https://seshstack.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+<body>
+<div class="window">
+<div class="window-bar" aria-hidden="true"><span class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></span><span class="window-title">~/seshstack — models</span></div>
+<header>
+  <p class="wordmark" aria-hidden="true">~/seshstack <span class="prompt">$</span><span class="cursor"></span></p>
+  <p class="kicker">Sesh B · @OpenSesh95</p>
+  <nav>
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="work">Work</a>
+    <a href="writing">Writing</a>
+  </nav>
+</header>
+<main class="notes">
+  <aside class="notes-index" aria-label="Notes index">
+    <p class="notes-group">Pinned</p>
+    <a class="note-item" href="about"><span class="note-title">🔭 about</span><span class="note-meta">2026-11-15 · I build enterprise data systems — currently, previously, focus.</span></a>
+    <a class="note-item" href="links"><span class="note-title">🔗 quick links</span><span class="note-meta">2026-11-15 · GitHub, LinkedIn, Substack — each with a one-line note.</span></a>
+    <p class="notes-group">Notes</p>
+    <a class="note-item" href="work"><span class="note-title">🗂 work</span><span class="note-meta">2026-11-14 · Projects at footprint level. The record lives on GitHub.</span></a>
+    <a class="note-item" href="writing"><span class="note-title">✍️ writing</span><span class="note-meta">2026-11-11 · Essays live on Substack. This site is the index.</span></a>
+    <a class="note-item" href="essays"><span class="note-title">📝 essays</span><span class="note-meta">2026-11-17 · The long-form pieces — each on its own page.</span></a>
+    <a class="note-item" href="movies"><span class="note-title">🎬 movies</span><span class="note-meta">2026-11-17 · What I like, who I follow, and the films I return to.</span></a>
+    <a class="note-item" href="music"><span class="note-title">🎵 music</span><span class="note-meta">2026-11-20 · Two layers: what raised the ear, and what it listens to now.</span></a>
+    <a class="note-item" href="models" aria-current="page"><span class="note-title">🧠 models</span><span class="note-meta">2026-11-20 · Findings from running AI systems — written for the public, one piece at a time.</span></a>
+    <a class="note-item" href="benchmarks"><span class="note-title">🧪 benchmarks</span><span class="note-meta">2026-11-20 · The Bench — curated NotebookLM benchmarks, with provenance.</span></a>
+    <a class="note-item" href="collecting"><span class="note-title">🗃️ collecting</span><span class="note-meta">2026-11-17 · Starter playbooks for collecting comics, memorabilia, and almost anything.</span></a>
+    <a class="note-item" href="colophon"><span class="note-title">🛠 how this works</span><span class="note-meta">2026-11-15 · How this site works — and what it never does to a reader.</span></a>
+  </aside>
+  <article class="note">
+    <h1>Models</h1>
+    <p>Findings from running AI systems — written for the public, one piece at a time. Each piece names the public work it rests on.</p>
+    <h2>The discipline is the system</h2>
+    <p>Two small systems I built and published taught me more about running AI than any model release this year. Neither is about the model. Both are about what surrounds it.</p>
+    <p>The first wraps every model call in a control loop: the output is checked by plain deterministic rules before a person ever sees it, it stops at an approval gate that stays closed unless someone opens it, and every run — approved, rejected, or failed — is written to a ledger with its cost. The second decides what goes into the model's context in the first place: given a question and a pile of files, it packs only what fits a stated budget, shows its accounting, and reports what it left out and why, instead of silently cutting.</p>
+    <p>Four findings, stated generally, because they generalize:</p>
+    <p><strong>Verify before review.</strong> A human's attention is the scarcest resource in the system. Deterministic checks — size, shape, required terms, valid structure — cost nothing and should reject everything they can before a person spends judgment on the rest.</p>
+    <p><strong>A gate that defaults open is not a gate.</strong> In both systems, nothing passes by default. An unattended run that nobody approved is recorded as a rejection, not waved through. That single choice changes what the records mean: an approval in the ledger is evidence, not an assumption.</p>
+    <p><strong>Keep the failures in the ledger.</strong> Most tooling records successes and lets failures evaporate. Metering every outcome — including the rejections and the provider errors, with token counts taken from the provider's own usage numbers, never estimated — turns a demo into an operation. You cannot improve a system whose failures you didn't keep.</p>
+    <p><strong>Context is a budget, not a pile.</strong> Packing deterministically — same inputs, same pack, every run — with the exclusions reported rather than hidden, makes the model's input something you can reason about and reproduce. The moment packing becomes vibes, debugging becomes archaeology.</p>
+    <p>The models will keep changing. The loop around them is the part that compounds.</p>
+    <p><em>The two systems are public: <a href="https://github.com/OpenSesh95/gated-dispatch">gated-dispatch</a> — dispatch, verify, gate, ledger. context-router — deterministic context packing under a budget.</em></p>
+
+  </article>
+</main>
+<footer><p>© Sesh B · <a href="https://github.com/OpenSesh95">GitHub</a> · <a href="https://www.linkedin.com/in/saurabhsesh">LinkedIn</a> · <a href="https://seshstack.substack.com">Substack</a> · <a href="https://bsky.app/profile/seshstack.bsky.social">Bluesky</a> · <a href="https://x.com/seshstack">X</a> · <a href="sitemap.xml">Sitemap</a> · No tracking. No cookies.</p></footer>
+</div><!-- /.window -->
+</body>
+</html>
