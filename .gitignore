@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Secrets — never commit .env (see .env.example)
+.env
+.env.*
+!.env.example
+
+# Model weights (canonical skeleton: models/ is git-ignored)
+models/*
+!models/.gitkeep
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
