@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fifteen Watts — Sesh B</title>
+<meta name="description" content="There is a small computer in my house that draws fifteen watts. A desk lamp draws more.">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2C001E">
+<meta property="og:title" content="Fifteen Watts — Sesh B">
+<meta property="og:description" content="There is a small computer in my house that draws fifteen watts. A desk lamp draws more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seshstack.com/essays/fifteen-watts">
+<link rel="canonical" href="https://seshstack.com/essays/fifteen-watts">
+<meta property="og:image" content="https://seshstack.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+<body>
+<div class="window">
+<div class="window-bar" aria-hidden="true"><span class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></span><span class="window-title">~/seshstack — essays</span></div>
+<header>
+  <p class="wordmark" aria-hidden="true">~/seshstack <span class="prompt">$</span><span class="cursor"></span></p>
+  <p class="kicker">Sesh B · @OpenSesh95 · <a href="https://huggingface.co/seshbee">seshbee</a></p>
+  <nav>
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="work">Work</a>
+    <a href="writing">Writing</a>
+  </nav>
+</header>
+<main class="notes">
+  <aside class="notes-index" aria-label="Notes index">
+    <p class="notes-group">Pinned</p>
+    <a class="note-item" href="about"><span class="note-title">🔭 about</span><span class="note-meta">2026-11-15 · I build enterprise data systems — currently, previously, focus.</span></a>
+    <a class="note-item" href="links"><span class="note-title">🔗 quick links</span><span class="note-meta">2026-11-15 · GitHub, LinkedIn, Substack — each with a one-line note.</span></a>
+    <p class="notes-group">Notes</p>
+    <a class="note-item" href="work"><span class="note-title">🗂 work</span><span class="note-meta">2026-11-14 · Projects at footprint level. The record lives on GitHub.</span></a>
+    <a class="note-item" href="writing"><span class="note-title">✍️ writing</span><span class="note-meta">2026-11-11 · Essays live on Substack. This site is the index.</span></a>
+    <a class="note-item" href="essays" aria-current="page"><span class="note-title">📝 essays</span><span class="note-meta">2026-11-17 · The long-form pieces — each on its own page.</span></a>
+    <a class="note-item" href="movies"><span class="note-title">🎬 movies</span><span class="note-meta">2026-11-17 · The kinds of films, the characters, and the full watched log.</span></a>
+    <a class="note-item" href="music"><span class="note-title">🎵 music</span><span class="note-meta">2026-11-20 · Alt rock to electronic — the progression, and the artists on it.</span></a>
+    <a class="note-item" href="models"><span class="note-title">🧠 models</span><span class="note-meta">2026-11-20 · Findings from running AI systems — written for the public, one piece at a time.</span></a>
+    <a class="note-item" href="benchmarks"><span class="note-title">🧪 benchmarks</span><span class="note-meta">2026-11-20 · The Bench — curated NotebookLM benchmarks, with provenance.</span></a>
+    <a class="note-item" href="collecting"><span class="note-title">🗃️ collecting</span><span class="note-meta">2026-11-17 · Starter playbooks for collecting comics, memorabilia, and almost anything.</span></a>
+    <a class="note-item" href="colophon"><span class="note-title">🛠 how this works</span><span class="note-meta">2026-11-15 · How this site works — and what it never does to a reader.</span></a>
+  </aside>
+  <article class="note essay">
+    <h1>Fifteen Watts</h1>
+    <p class="essay-meta">Essays · 2026-11-17</p>
+    <p>There is a small computer in my house that draws fifteen watts. A desk lamp draws more. It is the always-on center of a personal build: five applied-AI projects, run under a hard cap of $100 a month, total, everything included.</p>
+    <p>The rest of the fleet is modest. An M1 MacBook. An iPhone and an iPad. An RTL-SDR radio, a cheap USB receiver that listens to whatever is in the air. When something needs real compute, I rent frontier cloud in short bursts and give it back. A zero-trust mesh ties it together, so no device is trusted because of where it sits on the network. Every connection proves itself. The little edge host is the citadel. The cloud is the weather.</p>
+    <p>I should say plainly what this is before anyone mistakes it for something bigger.</p>
+    <p>These are scaffolds. Contracts, skeletons, and green test suites, built contracts-first. I have not shipped five products. I have built five honest beginnings, and each one has a test suite that passes completely. A passing suite proves one thing: the system does what its contracts say. It does not prove the system is good, fast, or finished. That is the true size of the claim.</p>
+    <p>This is not an apology. It is the point.</p>
+    <p>My day job is enterprise data systems. At that scale, discipline is spread across teams, review gates, and runbooks written by people who left years ago. That spread is necessary, and it hides things. When a queue refuses bad input, you often can&#x27;t say who decided it should, or why.</p>
+    <p>At fifteen watts you can hold the whole system in your head. There is nobody downstream to catch what I skip. So every discipline is visible, because every discipline is mine. Each constraint forced a decision I had to make out loud.</p>
+    <p>The first project is a retrieval engine that splits work between edge and cloud. Before I wrote a line of worker code, I wrote the contracts: the API spec for a query and the schema for the vector store. The workers came second, and they had to fit.</p>
+    <p>The order matters more than it sounds. When the contract comes first, the code has something to be wrong against. When the code comes first, the contract ends up describing whatever the code happened to do.</p>
+    <p>The chunker, which splits documents into pieces for retrieval, is deterministic. The same document produces the same chunks every time. That sounds like a small property until retrieval goes wrong and you need to know whether the data moved or the model did. If the chunker can drift, you can&#x27;t tell. Eleven of eleven tests green.</p>
+    <p>The second project turns speech into structured tasks. You talk, and it produces something actionable. The queue has a floor: if a transcript comes in under 0.60 confidence, the pipeline will not extract tasks from it. The transcript is dead-lettered, set aside with its reason, and nothing acts on it.</p>
+    <p>The mechanism is simple. The reasoning is the part worth naming. A misheard sentence turned into a task is worse than no task, because acting is the expensive part. A missing task costs me a moment of noticing. A wrong task costs me the work of undoing something I never asked for. So the system refuses early, before the cost lands. Sixteen of sixteen tests green.</p>
+    <p>The third project fine-tunes models on rented spot GPUs. Spot capacity is cheap because the provider can take it back at any time. Under a $100 monthly cap, that tradeoff is the only reason this project can exist, and it shaped the entire design.</p>
+    <p>The center of the design is a budget gate. Every job carries a cost cap, with a default of $0.75 per burst. Before anything launches, the system projects the job&#x27;s cost. If the projection exceeds the cap, the job is refused. No instance starts and no meter runs. The refusal happens where it is free.</p>
+    <p>The second decision is about preemption. When a spot instance gets reclaimed mid-run, the job is dead-lettered with its checkpoint location recorded. A resume picks up from that checkpoint, so it never pays again for work that already finished. Never pay twice is not frugality for its own sake. It is the difference between a budget that holds and one that leaks a little every time the world interrupts you. Fourteen of fourteen tests green.</p>
+    <p>The fourth project is an audio ML pipeline, and it taught me the difference between two kinds of failure.</p>
+    <p>A corrupt file will not improve. Retrying it is a bet that the world changed, and for a broken file the world didn&#x27;t. So corrupt files dead-letter on the first failure, with the reason recorded. They are never retried forever and never silently dropped. Both of those are common, and both are lies. Retrying forever pretends the problem is temporary. Dropping silently pretends there was no problem.</p>
+    <p>There is one known transient failure, though, where the world really might change between attempts. That one gets a bounded retry of three attempts. The bound is the whole idea: hope gets a budget too. Thirteen of thirteen tests green.</p>
+    <p>The fifth project is the one I like most. It uses the RTL-SDR to pull aircraft telemetry out of the air: Mode S and ADS-B, the messages planes broadcast about who and where they are.</p>
+    <p>Here&#x27;s the problem with testing a decoder. If I write the expected outputs from my own understanding of the format, my tests only prove I agree with myself. If I misread the spec, my code and my tests will be wrong together, and everything will be green.</p>
+    <p>So the decoder is verified against a recorded real-world frame, a public test vector with a published answer. It decodes to ICAO address 4840D6 and callsign KLM1023, exactly as published. That&#x27;s the world grading my work instead of me grading it. Malformed frames are dead-lettered with their reason, like everywhere else in this build. Nine of nine tests green.</p>
+    <p>Put the five side by side and the same few decisions keep showing up.</p>
+    <p>Refuse early, before the cost is paid, whether that cost is money, compute, or a wrong action. Record reasons, so every refusal and every failure can explain itself later to the only person who will ask. Never pay twice: checkpoint, resume, and treat finished work as finished. Verify against the real world, because a test suite that only agrees with its author is a mirror.</p>
+    <p>None of these are new ideas. Every serious data system has some version of each one. But at enterprise scale they arrive as inherited policy, and the reasoning behind them rarely travels with them. On fifteen watts and a hundred dollars, I had to rediscover each one, because the constraint left me no choice.</p>
+    <p>That is my real argument. The frontier scales compute. You can rent more of it than you&#x27;ll ever need, for a while. The edge teaches judgment. When the watts are fixed, the dollars are capped, and the labor is one person&#x27;s evenings, every design choice becomes a choice you can see, defend, and price.</p>
+    <p>I&#x27;ve heard a lot of talk about sovereignty in AI lately, and much of it is a mood. Owning your stack, running local, getting out from under the platforms. I&#x27;m sympathetic, but a mood isn&#x27;t an architecture.</p>
+    <p>Sovereignty, as I&#x27;ve come to understand it, is concrete. It is a system that answers to you. It runs in your house, on your power budget. When something refuses, fails, or resumes, the person who built it can explain why, end to end, without asking anyone.</p>
+    <p>That&#x27;s all these five scaffolds are. They are small and honest about their size, and every line of them can be explained.</p>
+    <p>Fifteen watts turns out to be enough for that.</p>
+    <p class="essay-end"><a href="/essays">← All essays</a></p>
+  </article>
+</main>
+<footer><p>© Sesh B · <a href="https://github.com/OpenSesh95">GitHub</a> · <a href="https://www.linkedin.com/in/saurabhsesh">LinkedIn</a> · <a href="https://seshstack.substack.com">Substack</a> · <a href="https://bsky.app/profile/seshstack.bsky.social">Bluesky</a> · <a href="https://x.com/seshstack">X</a> · <a href="https://huggingface.co/seshbee">Hugging Face</a> · <a href="sitemap.xml">Sitemap</a> · No tracking. No cookies.</p></footer>
+</div><!-- /.window -->
+</body>
+</html>
